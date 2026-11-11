@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-License-Identifier: CC0-1.0 -->
+<component type="desktop-application">
+  <id>@APP_ID@</id>
+  <name>@APP_NAME@</name>
+  <summary>Terminal for Linux phones, on libghostty-vt</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+  <developer id="codes.noa"><name>Noa Himesaka</name></developer>
+  <url type="homepage">https://github.com/noas-slopware/@APP_BINARY@</url>
+  <url type="bugtracker">https://github.com/noas-slopware/@APP_BINARY@/issues</url>
+  <content_rating type="oars-1.1"/>
+  <launchable type="desktop-id">@APP_ID@.desktop</launchable>
+  <description>
+    <p>A touch-first terminal in Kirigami, with Ghostty's terminal emulation (libghostty-vt) underneath.</p>
+  </description>
+  <provides><binary>@APP_BINARY@</binary></provides>
+  <recommends><control>touch</control></recommends>
+  <supports><control>keyboard</control><control>pointing</control></supports>
+  <releases><release version="@PROJECT_VERSION@" date="2026-11-12"/></releases>
+</component>

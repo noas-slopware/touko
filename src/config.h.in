@@ -1,0 +1,6 @@
+// SPDX-License-Identifier: GPL-2.0-or-later
+#pragma once
+#define TOUKO_APP_NAME "@APP_NAME@"
+#define TOUKO_APP_ID "@APP_ID@"
+#define TOUKO_BINARY "@APP_BINARY@"
+#define TOUKO_VERSION "@PROJECT_VERSION@"

@@ -1,0 +1,43 @@
+# Maintainer: Noa Himesaka <himesaka@noa.codes>
+# No Arch or AUR package exists for this app; written from scratch.
+pkgname=touko
+pkgver=0.1.0
+pkgrel=1
+pkgdesc='Terminal for Linux phones in Kirigami, on libghostty-vt'
+arch=(x86_64 aarch64)
+url='https://github.com/noas-slopware/touko'
+license=(GPL-2.0-or-later)
+# libghostty-vt ships inside Arch's ghostty package. Its C API is not
+# stable yet: rebuild this package whenever ghostty is updated.
+depends=(
+  ghostty
+  ghostty-terminfo
+  ghostty-shell-integration
+  glibc
+  gcc-libs
+  hicolor-icon-theme
+  kirigami
+  qt6-base
+  qt6-declarative
+)
+optdepends=('qqc2-desktop-style: Plasma look outside Plasma Mobile')
+makedepends=(cmake git ninja)
+checkdepends=()
+source=("git+$url.git#tag=v$pkgver")
+sha256sums=('SKIP')
+
+build() {
+  cmake -S touko -B build -G Ninja \
+    -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DBUILD_TESTING=ON
+  cmake --build build
+}
+
+check() {
+  QT_QPA_PLATFORM=offscreen ctest --test-dir build --output-on-failure
+}
+
+package() {
+  DESTDIR="$pkgdir" cmake --install build
+}

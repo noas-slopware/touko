@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Name=@APP_NAME@
+GenericName=Terminal
+Comment=Terminal for Linux phones, on libghostty-vt
+Exec=@APP_BINARY@
+Icon=@APP_ID@
+Terminal=false
+Categories=Qt;KDE;System;TerminalEmulator;
+Keywords=shell;prompt;command;commandline;cmd;terminal;
+StartupNotify=true
+StartupWMClass=@APP_ID@
+X-KDE-FormFactor=desktop;tablet;handset;

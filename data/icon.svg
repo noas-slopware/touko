@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- A flower opening behind a prompt. -->
+  <rect x="4" y="4" width="56" height="56" rx="12" fill="#2b2f36"/>
+  <g transform="translate(44 44)">
+    <g fill="#f7a8c4">
+      <ellipse cx="0" cy="-8" rx="5.5" ry="8"/>
+      <ellipse cx="0" cy="-8" rx="5.5" ry="8" transform="rotate(72)"/>
+      <ellipse cx="0" cy="-8" rx="5.5" ry="8" transform="rotate(144)"/>
+      <ellipse cx="0" cy="-8" rx="5.5" ry="8" transform="rotate(216)"/>
+      <ellipse cx="0" cy="-8" rx="5.5" ry="8" transform="rotate(288)"/>
+    </g>
+    <circle r="4.5" fill="#fde47a"/>
+  </g>
+  <path d="M14 18 L24 26 L14 34" fill="none" stroke="#eff0f1" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="27" y1="34" x2="38" y2="34" stroke="#eff0f1" stroke-width="4" stroke-linecap="round"/>
+</svg>
