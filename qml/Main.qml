@@ -32,7 +32,7 @@ Kirigami.ApplicationWindow {
         property string lightTheme: "GitHub Light Default"
         property string darkTheme: "Breeze"
         property string colorScheme: "system"
-        property bool extraKeys: true
+        property bool extraKeys: false
         property bool visualBell: true
     }
 

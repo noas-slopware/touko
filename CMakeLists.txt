@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.21)
 set(APP_NAME "Touko")
 set(APP_BINARY "touko")
 set(APP_ID "codes.noa.Touko")
-project(${APP_BINARY} VERSION 0.1.0 LANGUAGES CXX)
+project(${APP_BINARY} VERSION 0.1.1 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)

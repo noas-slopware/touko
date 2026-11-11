@@ -15,8 +15,9 @@ Plasma Mobile, and it runs on any Linux desktop too.
   take exactly two cells.
 - On-screen keyboard support: Hangul composition shows as preedit at the cursor and is sent
   once it is committed. No autocorrect, auto capitals or prediction.
-- An extra-keys row: Esc, Ctrl, Alt, Tab, arrows, Home/End, PgUp/PgDn, Del, F1 to F12 and a
-  few symbols. Ctrl and Alt latch for one key; a double tap locks them.
+- An extra-keys row for keyboards without them (off by default, Settings turns it on): Esc,
+  Ctrl, Alt, Tab, arrows, Home/End, PgUp/PgDn, Del, F1 to F12 and a few symbols. Ctrl and
+  Alt latch for one key; a double tap locks them.
 - Touch: tap to type, drag to scroll (with fling), pinch to zoom, long press to select a
   word, then drag the handles. Full-screen programs get arrow keys or mouse wheel events
   from a drag, depending on what they asked for.
