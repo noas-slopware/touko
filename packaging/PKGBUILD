@@ -1,7 +1,7 @@
 # Maintainer: Noa Himesaka <himesaka@noa.codes>
 # No Arch or AUR package exists for this app; written from scratch.
 pkgname=touko
-pkgver=0.1.1
+pkgver=0.1.2
 pkgrel=1
 pkgdesc='Terminal for Linux phones in Kirigami, on libghostty-vt'
 arch=(x86_64 aarch64)

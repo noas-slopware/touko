@@ -83,6 +83,8 @@ public:
     // Selection handles in QML call these with item coordinates.
     Q_INVOKABLE void moveSelectionEdge(bool start, qreal x, qreal y);
     Q_INVOKABLE void endSelectionMode();
+    // Top left of a cell, in item coordinates.
+    Q_INVOKABLE QPointF cellPosition(int col, int row) const { return cellToItem(QPoint(col, row)); }
     // What a long press does: select the word there and show the handles.
     Q_INVOKABLE void selectWordAtPoint(qreal x, qreal y) { beginTouchSelection(QPointF(x, y)); }
 

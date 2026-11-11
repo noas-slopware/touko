@@ -132,7 +132,7 @@ private Q_SLOTS:
     {
         Rig rig(QStringLiteral("printf 'hello world'; printf READY; sleep 5"));
         QVERIFY(rig.ready());
-        const QPoint p(int(rig.item->cellWidth() * 2.5), int(rig.item->cellHeight() / 2));
+        const QPoint p = (rig.item->cellPosition(2, 0) + QPointF(rig.item->cellWidth() / 2, rig.item->cellHeight() / 2)).toPoint();
         QTest::touchEvent(&rig.window, touch).press(0, p, &rig.window);
         QTRY_VERIFY_WITH_TIMEOUT(rig.item->selecting(), 2000);
         QTest::touchEvent(&rig.window, touch).release(0, p, &rig.window);
@@ -164,7 +164,8 @@ private Q_SLOTS:
         Rig rig(QStringLiteral("printf '\\033[?1000h\\033[?1006h'; stty raw -echo min 0 time 20; printf READY; dd bs=256 count=1 2>/dev/null | od -An -c | tr -d ' \\n'; printf END; sleep 1"));
         QVERIFY(rig.ready());
         QVERIFY(rig.session.mouseTracking());
-        const QPoint p(int(rig.item->cellWidth() * 3.5), int(rig.item->cellHeight() * 2.5));
+        // The middle of column 3, row 2: SGR reports it 1-based as 4;3.
+        const QPoint p = (rig.item->cellPosition(3, 2) + QPointF(rig.item->cellWidth() / 2, rig.item->cellHeight() / 2)).toPoint();
         QTest::touchEvent(&rig.window, touch).press(0, p, &rig.window);
         QTest::touchEvent(&rig.window, touch).release(0, p, &rig.window);
         const QString out = rig.result();
