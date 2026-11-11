@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.21)
 set(APP_NAME "Touko")
 set(APP_BINARY "touko")
 set(APP_ID "codes.noa.Touko")
-project(${APP_BINARY} VERSION 0.1.2 LANGUAGES CXX)
+project(${APP_BINARY} VERSION 0.1.3 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -62,7 +62,6 @@ qt_add_qml_module(${APP_BINARY}
     qml/ExtraKeys.qml
     qml/SettingsPage.qml
     qml/ThemePicker.qml
-  NO_RESOURCE_TARGET_PATH
   # Shared Qt and Kirigami: nothing to link statically, and the scan only
   # complains that Kirigami's plugins are not static targets.
   NO_IMPORT_SCAN
@@ -95,4 +94,12 @@ if(BUILD_TESTING)
   set_target_properties(test_item PROPERTIES QT_QML_MODULE_NO_IMPORT_SCAN TRUE)
   add_test(NAME item COMMAND test_item)
   set_tests_properties(item PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen")
+
+  # The app started from a copy outside the build tree, where no qmldir sits
+  # next to the binary: it must find its QML in its own resources, as
+  # /usr/bin/touko does.
+  add_test(NAME launch COMMAND ${CMAKE_COMMAND}
+    -DAPP=$<TARGET_FILE:${APP_BINARY}> -DWORK=${CMAKE_CURRENT_BINARY_DIR}/launch-test
+    -P ${CMAKE_CURRENT_SOURCE_DIR}/tests/launch.cmake)
+  set_tests_properties(launch PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen")
 endif()
